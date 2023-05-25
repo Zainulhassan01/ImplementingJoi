@@ -1,3 +1,4 @@
+<%- include('./partials/_navbar.ejs') %>
 <% users.forEach((user) => { %>
     <h1>Hi, I am <%= user.firstName %></h1>
     <% if (user.admin) { %>
@@ -6,3 +7,4 @@
         <p><b>I don't have a secret</b></p>
     <% }%>
 <% }) %>
+<%- include('./partials/_footer.ejs') %>
