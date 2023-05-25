@@ -8,6 +8,28 @@ let eventEmitter = require('./utils/eventEmitter')
 
 app.use(bodyParser.json({urlExtended: true}))
 
+const users = [
+    {
+        firstName: 'Tim',
+        lastName: 'Cook',
+        admin: true,
+    }, 
+    {
+        firstName: 'dim',
+        lastName: 'dim',
+        admin: false,
+    },
+    {
+        firstName: 'dim',
+        lastName: 'dim',
+        admin: false,
+    }
+]
+
+app.get('/', (req, res) => {
+    res.render('index', {users: users.length > 0 ? users : []})
+})
+
 app.listen(process.env.SERVER_PORT || 3000, () => {
     console.log('Listennings');
     eventEmitter = eventEmitter.init()
